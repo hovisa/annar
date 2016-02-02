@@ -1,3 +1,8 @@
+---
+output: 
+  html_document: 
+    keep_md: yes
+---
 # annar
 Chooses random card from a standard deck of cards. Can either show suit, face, value, or all three.
 You pick two variables. The first variable (1 through 52) chooses which card you picked. The second variable (1 through 3 
