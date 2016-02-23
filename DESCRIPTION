@@ -10,5 +10,6 @@ Description: Chooses random cards from a deck without replacement. It can show e
 License: What license is it under?
 LazyData: TRUE
 Suggests: knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
 VignetteBuilder: knitr
