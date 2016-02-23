@@ -1,23 +1,55 @@
-
-
-Face <- c("king", "queen","jack", "ten","nine","eight","seven","six","five","four","three","two","ace")
-Suit <- c("spades","clubs", "diamonds", "hearts")
-Value = 13:1
-deck <- data.frame(face = rep(Face, 4), suit = rep(Suit, each = 13), value = rep(Value, 4), stringsAsFactors = FALSE)
-
-#' Shuffle
+#' Squaring Numbers
 #'
-#' @param cards A value chosen from a deck.
+#' @param x Must be a numeric object.
 #'
-#' @return Random cards being chosen showing face, suit, and value.
+#' @return Squares the values in the numeric object.
 #' @export
 #'
 #' @examples
-#'deck2[1:6, ]
-#'deck2[2,3]
-shuffle<- function(cards){
-  index <- sample(dim(cards)[1], size = dim(cards)[1], replace = FALSE)
-  cards[index, ]
+#' sq(c(1,3,5))
+#' sq(1:10)
+sq <- function(x){
+  x^2
 }
-deck2 <- shuffle(cards = deck)
-deck2[1:5, ]
+
+#' Power Function
+#'
+#' @param x Must be a numeric object.
+#' @param power A numeric object called \code{power}.
+#'
+#' @return Raises the values in the numeric object \code{x} to the value in \code{power}.
+#' @export
+#'
+#' @examples
+#' RP(c(1, 3, 5), 3)
+#' RP(x = c(1, 3, 5), power = 3)
+#' RP(power = 3, x = c(1, 3, 5))
+#'
+RP <- function(x, power = 1){
+  x^power
+}
+
+#' Dice
+#'
+#' @param dietype The type of die.
+#' @param probvalues The probability of getting a particular number of divots.
+#'
+#' @return The sum of two dice.
+#' @export
+#'
+#' @examples
+#' set.seed(123)
+#' roll()
+#' roll(dietype = 1:20)
+#'
+roll <- function(dietype = 1:6, probvalues = rep(1/length(dietype), length(dietype))){
+  if(all(dietype %in% 1:6)){
+    warning("standard dice")
+  } else {
+    warning("non-standard dice")
+  }
+  if(sum(probvalues) != 1)
+    stop("'probvalues' must add to one")
+  dice <- sample(dietype, size = 2, replace = TRUE, prob = probvalues)
+  sum(dice)
+}
