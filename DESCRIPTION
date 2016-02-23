@@ -1,6 +1,6 @@
 Package: annar
 Type: Package
-Title: Random Card
+Title: Simple Functions
 Version: 0.1.0
 Date: 2016-02-01
 Authors@R: c(person("Anna","Hovis",email="hovisa@appstate.edu",role=c("aut","cre")),
